@@ -26,5 +26,14 @@
     ;; load up the starter kit
     (org-babel-load-file (expand-file-name "starter-kit.org" starter-kit-dir))))
 
+
 (tool-bar-mode -1)
+
+(add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
+(require 'color-theme)
+
+(add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized")
+(require 'color-theme-solarized)
+
+
 ;;; init.el ends here
