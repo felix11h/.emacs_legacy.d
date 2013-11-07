@@ -1,3 +1,12 @@
 [submodule "emacs-color-theme-solarized"]
 	path = emacs-color-theme-solarized
 	url = https://github.com/sellout/emacs-color-theme-solarized.git
+[submodule "zenburn-emacs"]
+	path = zenburn-emacs
+	url = https://github.com/bbatsov/zenburn-emacs
+[submodule "solarized-emacs"]
+	path = solarized-emacs
+	url = https://github.com/bbatsov/solarized-emacs
+[submodule "color-theme-sanityinc-solarized"]
+	path = color-theme-sanityinc-solarized
+	url = https://github.com/purcell/color-theme-sanityinc-solarized
