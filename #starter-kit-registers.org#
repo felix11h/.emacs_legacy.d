@@ -1,0 +1,35 @@
+#+TITLE: Starter Kit Registers
+#+OPTIONS: toc:nil num:nil ^:nil
+
+This is part of the [[file:starter-kit.org][Emacs Starter Kit]].
+
+* Starter Kit Registers
+Registers allow you to jump to a file or other location quickly. Use
+=C-x r j= followed by the letter of the register (i for =init.el=, r
+for this file) to jump to it.
+
+You should add registers here for the files you edit most often.
+#+LaTeX_CLASS :orbeamer
+#+LaTeX_CLASS_OPTIONS: [presentation]
+#+BEAMER_FRAME_LEVEL: 1
+
+#+BEAMER_HEADER_EXTRA: \usetheme{default}\usecolortheme{default}
+#+COLUMNS: %45ITEM %10BEAMER_env(Env) %10BEAMER_envargs(Env Args) %4BEAMER_col(Col) %8BEAMER_extra(Extra)
+#+PROPERTY: BEAMER_col_ALL 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 :ETC
+
+#+name: starter-kit-registers
+#+begin_src emacs-lisp :results silent
+  (dolist
+      (r `((?i (file . ,(concat starter-kit-dir "init.el")))
+           (?I (file . ,(let* ((user user-login-name)
+                               (org (expand-file-name (concat user ".org") starter-kit-dir))
+                               (el  (expand-file-name (concat user ".el") starter-kit-dir))
+                               (dir (expand-file-name user starter-kit-dir)))
+                          (cond
+                           ((file-exists-p org) org)
+                           ((file-exists-p el)  el)
+                           (t dir)))))
+           (?s (file . ,(concat starter-kit-dir "starter-kit.org")))
+           (?r (file . ,(concat starter-kit-dir "starter-kit-registers.org")))))
+    (set-register (car r) (cadr r)))
+#+end_src
