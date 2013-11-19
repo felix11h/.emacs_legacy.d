@@ -30,9 +30,10 @@
 
 ;;========Personal Gloabl========= 
 
-(tool-bar-mode -1)      ;;no toolbar
-(global-linum-mode t)   ;;global line numbers
-(scroll-bar-mode -1)    ;;no scrollbar
+(tool-bar-mode -1)              ;;no toolbar
+(global-linum-mode t)           ;;global line numbers
+(scroll-bar-mode -1)            ;;no scrollbar
+(global-set-key "\C-z" nil)     ;;no minimize
 
 
 
