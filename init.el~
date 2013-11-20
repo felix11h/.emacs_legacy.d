@@ -28,7 +28,7 @@
 
 
 
-;;Personal Global:
+;;========Personal Gloabl========= 
 
 (tool-bar-mode -1)      ;;no toolbar
 (global-linum-mode t)   ;;global line numbers
@@ -36,7 +36,7 @@
 
 
 
-;;Color Themes:
+;;========Color Themes========= 
 
 (add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
 (require 'color-theme)
@@ -48,7 +48,7 @@
 
 
 
-;;AucTex:
+;;============AucTex=========== 
 
 ;;(load "auctex.el" nil t t)
 
@@ -58,7 +58,8 @@
 (setq TeX-PDF-mode t)
 
 
-;;latexmk
+;;============Latexmk=========== 
+
 
 (defun run-latexmk ()
   (interactive)
@@ -90,9 +91,6 @@
 ;; Exclude bold/italic from keywords
 (setq font-latex-deactivated-keyword-classes
     '("italic-command" "bold-command" "italic-declaration" "bold-declaration"))
-
-
-
 
 
 
