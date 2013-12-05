@@ -28,19 +28,17 @@
 
 
 
-;;========Personal Gloabl========= 
+;;========Personal Global========= 
 
-<<<<<<< HEAD
-(tool-bar-mode -1) ;;no toolbar
-(global-linum-mode t) ;;global line numbers
-(scroll-bar-mode -1) ;;no scrollbar
-(global-set-key "\C-z" nil) ;;no minimize
-=======
+;;(add-to-list 'load-path "~/.emacs.d/nlinum-1.1")
+(require 'nlinum-1.1)
+
 (tool-bar-mode -1)              ;;no toolbar
-(global-linum-mode t)           ;;global line numbers
+;;(global-linum-mode 1)           ;;global line numbers
+;;(global-nlinum-mode 1)           ;;global line numbers
+(column-number-mode 1)          ;;columns
 (scroll-bar-mode -1)            ;;no scrollbar
 (global-set-key "\C-z" nil)     ;;no minimize
->>>>>>> f869b4ad091b4257e54b182a234d941934aca81d
 
 
 
