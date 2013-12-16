@@ -51,6 +51,12 @@
 (require 'color-theme-sanityinc-solarized)
 
 
+;;============Orgmode===========
+
+(setq org-startup-indented t)   ;;default indent mode    
+
+
+
 
 ;;============AucTex=========== 
 
