@@ -51,3 +51,7 @@ secret.org
 .emacs.desktop*
 .*~
 agent/*
+
+
+## I'm not sure about all this above.. Below own ignores.
+*~
