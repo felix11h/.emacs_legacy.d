@@ -54,6 +54,22 @@
 ;;============Orgmode===========
 
 (setq org-startup-indented t)   ;;default indent mode    
+(setq org-log-done 'time)       ;;logging when tasks are done
+
+;;(add-to-list 'load-path "~/.emacs.d/org-mode-customs")
+;;(require 'org-expiry) 
+;;(org-expiry-insinuate) 
+;;(setq org-expiry-inactive-timestamps t)
+
+;;enables RefTeX, from http://orgmode.org/worg/org-faq.html
+(defun org-mode-reftex-setup ()
+  (load-library "reftex")
+  (and (buffer-file-name)
+       (file-exists-p (buffer-file-name))
+       (reftex-parse-all))
+  (define-key org-mode-map (kbd "C-c )") 'reftex-citation))
+(add-hook 'org-mode-hook 'org-mode-reftex-setup)
+
 
 
 
