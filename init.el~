@@ -61,7 +61,7 @@
 ;;(org-expiry-insinuate) 
 ;;(setq org-expiry-inactive-timestamps t)
 
-;;enables RefTeX
+;;enables RefTeX, from http://orgmode.org/worg/org-faq.html
 (defun org-mode-reftex-setup ()
   (load-library "reftex")
   (and (buffer-file-name)
@@ -82,6 +82,9 @@
 ;;(setq TeX-parse-self t)
 (setq-default TeX-master nil)
 (setq TeX-PDF-mode t)
+
+;;enables RefTeX
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 
 
 ;;============Latexmk=========== 

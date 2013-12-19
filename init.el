@@ -83,6 +83,11 @@
 (setq-default TeX-master nil)
 (setq TeX-PDF-mode t)
 
+;;enables RefTeX
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+;; So that RefTeX finds my bibliography
+(setq reftex-default-bibliography '("~/library/references/main.bib"))
+
 
 ;;============Latexmk=========== 
 
