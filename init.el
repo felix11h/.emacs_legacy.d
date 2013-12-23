@@ -137,7 +137,7 @@
 ;;(add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized")
 ;;(require 'color-theme-solarized)
 
-;;(add-to-list 'custom-theme-load-path "~/.emacs.d/solarized-emacs/")
+
 
 
 
