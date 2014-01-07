@@ -101,6 +101,20 @@
 ;; So that RefTeX finds my bibliography
 (setq reftex-default-bibliography '("~/library/references/main.bib"))
 
+;;Biblatex citing
+;;http://tex.stackexchange.com/questions/31966/setting-up-reftex-with-biblatex-citation-commands
+(eval-after-load 'reftex-vars
+  '(progn
+     ;; (also some other reftex-related customizations)
+     (setq reftex-cite-format
+           '((?\C-m . "\\cite[]{%l}")
+             (?f . "\\footcite[][]{%l}")
+             (?t . "\\textcite[]{%l}")
+             (?p . "\\parencite[]{%l}")
+             (?o . "\\citepr[]{%l}")
+             (?n . "\\nocite{%l}")))))
+
+
 
 ;;============Latexmk=========== 
 
