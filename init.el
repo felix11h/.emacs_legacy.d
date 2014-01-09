@@ -41,6 +41,19 @@
 
 
 
+;;========Fullscreen Mode========= 
+
+;;http://emacs-fu.blogspot.de/2008/12/running-emacs-in-full-screen-mode.html
+
+(defun djcb-full-screen-toggle ()
+  "toggle full-screen mode"
+  (interactive)
+  (shell-command "wmctrl -r :ACTIVE: -btoggle,fullscreen"))
+
+(global-set-key (kbd "<f11>")  'djcb-full-screen-toggle)
+
+
+
 ;;=========== Flyspell ========== 
 
 ;;enables per-file basis diabling of flyspell
