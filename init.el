@@ -33,6 +33,7 @@
 
 (setq ring-bell-function 'ignore)       ;;ignores ALL Alarm Bells; no flash when scrolling 
 (tool-bar-mode -1)                      ;;no toolbar
+(menu-bar-mode -1)                      ;;no menu bar
 ;;(global-linum-mode 1)                   ;;global line numbers
 (column-number-mode 1)                  ;;columns
 (scroll-bar-mode -1)                    ;;no scrollbar
