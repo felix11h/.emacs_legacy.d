@@ -39,6 +39,8 @@
 (global-set-key "\C-z" nil)             ;;no minimize
 
 
+
+
 ;;=========== Flyspell ========== 
 
 ;;enables per-file basis diabling of flyspell
@@ -149,6 +151,21 @@
 ;; Exclude bold/italic from keywords
 (setq font-latex-deactivated-keyword-classes
     '("italic-command" "bold-command" "italic-declaration" "bold-declaration"))
+
+
+
+;;============Package Manager=========== 
+
+;;http://ergoemacs.org/emacs/emacs_package_system.html
+
+
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (package-initialize)
+  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  )
+
+
 
 
 
