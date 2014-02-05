@@ -44,14 +44,28 @@
 
 ;;========Fullscreen Mode========= 
 
-;;http://emacs-fu.blogspot.de/2008/12/running-emacs-in-full-screen-mode.html
-
-(defun djcb-full-screen-toggle ()
-  "toggle full-screen mode"
+;; F11 = Full Screen
+(defun toggle-fullscreen (&optional f)
   (interactive)
-  (shell-command "wmctrl -r :ACTIVE: -btoggle,fullscreen"))
+  (let ((current-value (frame-parameter nil 'fullscreen)))
+    (set-frame-parameter nil 'fullscreen
+      (if (equal 'fullboth current-value)
+        (if (boundp 'old-fullscreen) old-fullscreen nil)
+        (progn (setq old-fullscreen current-value)
+          'fullboth)))))
+(global-set-key [f11] 'toggle-fullscreen)
 
-(global-set-key (kbd "<f11>")  'djcb-full-screen-toggle)
+
+
+;;======== Buffer Move ========= 
+(add-to-list 'load-path "~/.emacs.d/manual/")
+(load "buffer-move.el")
+(require 'buffer-move)
+
+(global-set-key (kbd "<C-S-up>")     'buf-move-up)
+(global-set-key (kbd "<C-S-down>")   'buf-move-down)
+(global-set-key (kbd "<C-S-left>")   'buf-move-left)
+(global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
 
 
