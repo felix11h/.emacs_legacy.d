@@ -52,7 +52,7 @@
       (if (equal 'fullboth current-value)
         (if (boundp 'old-fullscreen) old-fullscreen nil)
         (progn (setq old-fullscreen current-value)
-          'fullboth)))))
+          'fullboth)))))3
 (global-set-key [f11] 'toggle-fullscreen)
 
 
@@ -110,10 +110,8 @@
   (and (buffer-file-name)
        (file-exists-p (buffer-file-name))
        (reftex-parse-all))
-  (define-key org-mode-map (kbd "C-c )") 'reftex-citation))
+  (define-key org-mode-map (kbd "C-c [") 'reftex-citation))
 (add-hook 'org-mode-hook 'org-mode-reftex-setup)
-
-
 
 
 
