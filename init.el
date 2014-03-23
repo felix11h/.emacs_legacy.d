@@ -38,8 +38,21 @@
 (column-number-mode 1)                  ;;columns
 (scroll-bar-mode -1)                    ;;no scrollbar
 (global-set-key "\C-z" nil)             ;;no minimize
+(transient-mark-mode 1)                 ;;required for comment/uncomment
 
 
+
+;;========= Python Mode ==========
+
+;;http://ergoemacs.org/emacs/emacs_set_keys_for_major_mode.html
+
+(defun python-mode-keys ()
+  "Modify keymaps used by python mode."
+  (local-set-key (kbd "C-c ;") 'comment-dwim)
+  )
+
+;; add to html-mode-hook
+(add-hook 'python-mode-hook 'python-mode-keys)
 
 
 ;;========Fullscreen Mode========= 
