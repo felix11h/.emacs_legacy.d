@@ -39,7 +39,16 @@
 (scroll-bar-mode -1)                    ;;no scrollbar
 (global-set-key "\C-z" nil)             ;;no minimize
 (transient-mark-mode 1)                 ;;required for comment/uncomment
+(global-auto-revert-mode t)             ;;auto refresh buffers
 
+
+;; C-x C-f creates directory if needed
+(defadvice find-file (before make-directory-maybe (filename &optional wildcards) activate)
+  "Create parent directory if not exists while visiting file."
+  (unless (file-exists-p filename)
+    (let ((dir (file-name-directory filename)))
+      (unless (file-exists-p dir)
+        (make-directory dir)))))
 
 
 ;;========= Python Mode ==========
@@ -101,10 +110,14 @@
 (add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
 (require 'color-theme)
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/zenburn-emacs/")
+; (add-to-list 'custom-theme-load-path "~/.emacs.d/zenburn-emacs/")
 
 (add-to-list 'load-path "~/.emacs.d/color-theme-sanityinc-solarized")
 (require 'color-theme-sanityinc-solarized)
+
+;; Not working
+;;(add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized")
+;;(require 'color-theme-solarized)
 
 
 ;;============Orgmode===========
@@ -206,6 +219,26 @@
 
 
 
+;;============ Web Mode =========== 
+
+;; (require 'web-mode)
+;; (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode)) 
+;; (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode)) 
+;; (add-to-list 'auto-mode-alist '("\\.[gj]sp\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode)) 
+;; (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode)) 
+;; (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode)) 
+;; (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+
+;; (defun my-web-mode-hook () 
+;;   "Hooks for Web mode." 
+;;   ;;(setq web-mode-markup-indent-offset 2)
+;;   (define-key web-mode-map (kbd "C-c ;") 'web-mode-comment-or-uncomment) 
+;; )
+;; (add-hook 'web-mode-hook 'my-web-mode-hook)
+
 
 
 ;;Defunct:
@@ -217,8 +250,7 @@
 ;;(add-hook 'python-mode-hook
    ;;'ptyhon-mode-theme-hook)
 
-;;(add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized")
-;;(require 'color-theme-solarized)
+
 
 
 
@@ -229,16 +261,16 @@
 ;;; init.el ends here
 
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
- '(custom-safe-themes (quote ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
+;;  '(custom-safe-themes (quote ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default))))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  )
