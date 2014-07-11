@@ -95,9 +95,11 @@
 
 ;;enables per-file basis diabling of flyspell
 ;;use:
+
 ;;  /* Local Variables: */
 ;;  /* mode:org           */
 ;;  /* mode:my-no-flyspell */
+;;  /* End:             */
 
 (defun my-no-flyspell-mode (&optional rest)
   (flyspell-mode -1))
